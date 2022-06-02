@@ -9,7 +9,7 @@ device = {
     "host": "cisco4.lasthop.io",
     "username": "pyclass",
     "password": password,
-    "device_type": "cisco_nxos",
+    "device_type": "cisco_ios",
     "global_delay_factor": 2
     #"session_log": "log.txt"
 }

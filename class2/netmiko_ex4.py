@@ -1,7 +1,6 @@
 import os
 from netmiko import ConnectHandler
 from getpass import getpass
-from datetime import datetime
 
 password = os.getenv("PYNET_PASSWORD") if os.getenv("PYNET_PASSWORD") else getpass()
 
@@ -9,7 +8,7 @@ device = {
     "host": "cisco4.lasthop.io",
     "username": "pyclass",
     "password": password,
-    "device_type": "cisco_nxos",
+    "device_type": "cisco_ios",
     "global_delay_factor": 2
     #"session_log": "log.txt"
 }
