@@ -1,0 +1,15 @@
+Value Filldown BGP_ID (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+Value Filldown LOCAL_AS (\d+)
+Value NEIGHBOR (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+Value REMOTE_AS (\d+)
+Value UP_DOWN (4w5d|never)
+Value STATE_PFX (\d+|active)
+
+Start
+  ^BGP router identifier ${BGP_ID}, local AS number ${LOCAL_AS}\s*$$
+  ^Neighbor.*State/PfxRcd\s*$$ -> IpBGP
+
+IpBGP
+  ^${NEIGHBOR}\s+\d+\s+${REMOTE_AS}\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+${UP_DOWN}\s+${STATE_PFX} -> Record
+
+EOF

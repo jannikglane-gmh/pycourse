@@ -1,0 +1,16 @@
+Value INTERFACE_NAME (\S+\d/\d)
+Value LINE_STATUS (\S+ \S+$$)
+Value ADMIN_STATE (\S+ \S+)
+Value MAC_ADDRESS (\w{1,4}\.\w{1,4}\.\w{1,4})
+Value MTU (\d+)
+Value DUPLEX ((full|half)-duplex)
+Value SPEED (\d+)
+
+Start
+  ^${INTERFACE_NAME}\s+${LINE_STATUS}
+  ^admin state ${ADMIN_STATE}
+  ^\s+Hardware:.* ${MAC_ADDRESS}
+  ^\s+MTU\s+${MTU}
+  ^\s+${DUPLEX}, ${SPEED} -> Record
+
+EOF

@@ -1,0 +1,12 @@
+Value DEVICE_ID (\S+)
+Value LOCAL_INTF (\S+)
+Value CAP (\w+)
+Value PORT (\S+)
+
+Start
+  ^Device ID.*Port ID -> ShowLLDP
+
+ShowLLDP
+  ^${DEVICE_ID}\s+${LOCAL_INTF}\s+\d+\s+${CAP}\s+${PORT} -> Record
+
+EOF
